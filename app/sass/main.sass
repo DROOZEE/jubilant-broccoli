@@ -1,0 +1,751 @@
+@import "bourbon"
+@import "vars"
+@import "libs"
+
+//////////////////////////////
+//////////////////////////////
+//Index
+//////////////////////////////
+//////////////////////////////
+
+//Index
+
+.main
+	width: 100%
+	position: relative
+	&_calc
+		background-color: rgba($purple-color_1, 0.1)
+	&_index
+		height: 100vh
+		padding-top: 150px
+
+//Who Container
+.who-container
+	//padding-top: 150px
+	text-align: center
+
+	&__title
+		font-family: "RobotoLight", $helvetica
+		font-size: 70px
+		color: $dark-gray-color_1
+		text-transform: uppercase
+		line-height: 1
+		user-select: none
+		cursor: default
+		margin-bottom: 128px
+
+
+.square
+	width: 200px
+	height: 200px
+	display: inline-block
+	transition: all 0.3s $standard-animation
+	cursor: pointer
+	position: relative
+	transform: scale(1) rotate(0deg)
+	&:first-of-type
+		margin-right: 128px
+		border-radius: 50px
+		background-color: rgba($purple-color_2, 0.6)
+		animation-delay: 0.15s
+		.square__icon
+			font-size: 72px !important
+		&:hover
+			background-color: rgba($purple-color_2, 1)
+			.square__icon
+				transform: translate(-50%, -85%) rotate(0deg)
+	&:last-of-type
+		border-radius: 50px
+		background-color: rgba($iceblue-color_1, 0.6)
+		animation-delay: 0.15s
+		&:hover
+			background-color: rgba($iceblue-color_1, 1)
+	&:hover
+		transform: scale(1.1) rotate(0deg)
+		transition: all 0.3s $standard-animation
+		.square__icon
+			transform: translate(-50%, -80%) rotate(0deg)
+			transition: all 0.5s $standard-animation
+		.square__title
+			opacity: 1
+			transition: all 0.7s $standard-animation
+			transform: translate(-50%, -0%) rotate(0deg)
+			transition-delay: 0.1s
+	&__icon
+		font-size: 80px !important
+		color: $white-color_1
+		position: absolute
+		left: 50%
+		top: 50%
+		transform: translate(-50%, -50%) rotate(0deg)
+		transition: all 0.5s $standard-animation
+	&__title
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -0%) rotate(0deg)
+		text-transform: uppercase
+		font-size: 24px
+		color: $white-color_1
+		opacity: 0
+		transition: all 0.1s $standard-animation
+
+
+
+
+//////////////////////////////
+//////////////////////////////
+//Calc Page
+//////////////////////////////
+//////////////////////////////
+
+.section-calculator
+	padding: 40px 0px
+	min-height: 900px
+	background-color: transparent
+	position: relative
+
+// Salary Calc
+.salary-calc
+	width: 720px
+	margin: 0 auto
+	position: relative
+	background-color: $white-color_1
+	top: -80px
+	border-top: 8px solid rgba($purple-color_4, 0.6)
+	//box-shadow: 2px 0px 3px 0 rgba(0,0,0,0.14), -2px 0px 3px 0 rgba(0,0,0,0.14)
+	//&_shadowed
+		box-shadow: 0px 0px 0px 0 rgba(0,0,0,0.14), 0px 0px 0px 0 rgba(0,0,0,0.14)
+
+.form-wrap
+	display: block
+	padding: 10px 30px 10px 30px
+	position: relative
+	background-color: $white-color_1
+	&::before
+		content: ''
+		position: absolute
+		bottom: -1px
+		left: 0px
+		height: 1px
+		width: 100%
+		background-color: rgba(0,0,0,0.12)
+		transition: all 0.5s $standard-animation
+		opacity: 1
+		z-index: 20
+	&:last-of-type
+		&::before
+			display: none
+	&_alone
+		&::before
+			content: ''
+			display: none
+			transition: all 0.5s $standard-animation
+	&:nth-of-type(1)
+		display: none
+	//.right-side
+		float: right
+
+//Salary Form
+.salary-form
+	text-align: left
+	padding: 0px 0px 0px 0px
+	background-color: $white-color_1
+	position: relative
+	border-top: 32px solid rgba($purple-color_1, 0.6)
+	.add-wrap
+		position: absolute
+		top: -28px
+		right: 5px
+		height: 24px
+		&:hover .tooltip
+			width: 110px
+			transform: scale(1)
+			transition: all 0.01s $standard-animation
+		.tooltip
+			width: 110px
+			left: -43.5px
+			top: -46px
+			transition: all 0.01s $standard-animation
+			&::before
+				content: ''
+				position: absolute
+				left: 50%
+				bottom: -5px
+				width: 10px
+				height: 10px
+				background-color: rgba(97,97,97,1)
+				transform: translateX(-50%)rotate(45deg)
+	&__add-new, &__remove
+		cursor: pointer
+		user-select: none
+		color: rgba(0,0,0,0.42)
+		transition: all 0.2s $standard-animation
+		&:hover
+			color: rgba(255,255,255, 1)
+			transition: all 0.2s $standard-animation
+	&__remove
+		&:hover
+			color: $purple-color_2
+			transition: all 0.2s $standard-animation
+	.remove-wrap
+		position: absolute
+		right: 5px
+		top: 10px
+		height: 24px
+		&:hover .tooltip
+			width: 110px
+			transform: scale(1)
+			transition: all 0.01s $standard-animation
+		.tooltip
+			width: 110px
+			left: -43.5px
+			top: 30px
+			transition: all 0.01s $standard-animation
+			&::before
+				content: ''
+				position: absolute
+				left: 50%
+				top: -5px
+				width: 10px
+				height: 10px
+				background-color: rgba(97,97,97,1)
+				transform: translateX(-50%)rotate(45deg)
+	&__radio-icon-wrap
+		display: inline-block
+		position: relative
+		vertical-align: middle
+		width: 20px
+		height: 20px
+		margin-right: 0px
+		border-radius: 50%
+		&::before
+			content: ''
+			position: absolute
+			top: 50%
+			left: 50%
+			width: 20px
+			height: 20px
+			background-color: transparent
+			border-radius: 50%
+			border: 2px solid rgba(97,97,97,0.9)
+			transform: translate(-50%,-50%)
+		&::after
+			content: ''
+			position: absolute
+			top: 50%
+			left: 50%
+			width: 10px
+			height: 10px
+			background-color: rgba(97,97,97,0)
+			border-radius: 50%
+			transform: translate(-50%,-50%) scale(0)
+			box-shadow: 0px 0px 0px 0px rgba($purple-color_4, 0.2)
+			transition: all 0.1s
+		&_pressed
+			&::after
+				box-shadow: 0px 0px 0px 12px rgba($purple-color_4, 0.2)
+				transition: all 0.1s
+				border-radius: 50%
+				transform: translate(-50%,-50%) scale(1)
+	&__radio
+		appearance: none
+	&__radio:checked + .salary-form__radio-icon-wrap::before
+		content: ''
+		position: absolute
+		top: 50%
+		left: 50%
+		width: 20px
+		height: 20px
+		background-color: transparent
+		border-radius: 50%
+		border: 2px solid $purple-color_4
+		transform: translate(-50%,-50%)
+	&__radio:checked + .salary-form__radio-icon-wrap::after
+		content: ''
+		position: absolute
+		top: 50%
+		left: 50%
+		width: 10px
+		height: 10px
+		background-color: $purple-color_4
+		border-radius: 50%
+		transform: translate(-50%,-50%) scale(1)
+	&__radio-icon
+		color: rgba(0,0,0,0.54)
+		position: relative
+		opacity: 1
+		cursor: pointer
+		border-radius: 50%
+		user-select: none
+		&_checked
+			position: absolute
+			color: $purple-color_4
+			left: 0
+			opacity: 0
+	&__label
+		display: inline-block
+		position: relative
+		min-height: 24px
+		max-height: 40px
+		padding: 8px 8px 8px 0px
+		cursor: pointer
+		&:first-of-type
+			margin-top: 8px
+	&__tax
+		display: inline-block
+		position: relative
+		min-height: 24px
+		max-height: 40px
+		padding: 8px 8px 8px 0px
+		cursor: pointer
+		margin-top: 8px
+	&__text
+		font-family: "RobotoRegular", $helvetica
+		font-size: 16px
+		line-height: 27px
+		color: #000
+		position: relative
+		user-select: none
+		cursor: default
+		display: inline-block
+		&_on-input
+			font-size: 16px
+			position: absolute
+			bottom: 2px
+			z-index: 0
+			line-height: 1.6
+			width: 100%
+			transition: all 0.3s $standard-animation
+			transform-origin: bottom left
+			&_translated
+				bottom: 34px
+				background-color: transparent
+				transform: scale(0.75)
+				transition: all 0.3s $standard-animation
+		&:hover .tooltip
+			transform: scale(1)
+			transition: all 0.01s $standard-animation
+	&__text-radio, &__switch-text
+		font-size: 14px
+		color: rgba(0,0,0,0.87)
+		margin-left: 9px
+		user-select: none
+	&__checkbox
+		appearance: none
+	&__switch-text
+		margin-left: 0px
+		padding: 8px 0px 8px 0px
+		display: inline-block
+		cursor: default
+		user-select: none
+		position: relative
+		&:first-of-type:hover .tooltip
+			transform: scale(1)
+			transition: all 0.01s $standard-animation
+			width: 110px
+			left: -10px
+		&:last-of-type:hover .tooltip
+			transform: scale(1)
+			transition: all 0.01s $standard-animation
+			width: 110px
+			left: -8px
+	&__switch
+		display: inline-block
+		position: relative
+		width: 37px
+		margin-left: 14px
+		margin-right: 12px
+	&__slider
+		display: inline-block
+		position: absolute
+		width: 37px
+		height: 14px
+		top: 50%
+		left: 0
+		background-color: rgba(0,0,0,0.38)
+		border-radius: 7px
+		cursor: pointer
+		transform: translate(0%, -50%)
+		&::before
+			content: ''
+			position: absolute
+			height: 20px
+			width: 20px
+			left: -2px
+			top: -3px
+			background-color: $gray-color_2
+			border-radius: 50%
+			box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.24)
+			transition: all 0.3s $standard-animation
+	&__checkbox:checked + .salary-form__slider
+		background-color: rgba($purple-color_4, 0.5)
+	&__checkbox:checked + .salary-form__slider::before
+		background-color: $purple-color_4
+		transform: translateX(20px)
+	&__checkbox:checked + .salary-form__radio-icon-wrap::before
+		background-color: red
+	&__fieldset
+		border: none
+		margin: 0
+		padding: 0
+		height: 48px
+		display: inline-block
+		width: 100%
+		position: relative
+		background-color: $white-color_1
+		&::after
+			content: ''
+			position: absolute
+			height: 1px
+			width: 100%
+			left: 0px
+			bottom: 0px
+			background-color: rgba(0,0,0,0.42)
+		&_total
+			display: inline-block
+			position: relative
+			margin: 0
+			padding: 0
+			border: none
+			width: 137.75px
+			&::after
+				content: ''
+				position: absolute
+				height: 1px
+				width: 100%
+				left: 0px
+				bottom: 0px
+				background-color: rgba(0,0,0,0.42)
+	&__input
+		display: inline-block
+		width: 100%
+		position: absolute
+		bottom: 0
+		font-size: 16px
+		line-height: 1.5
+		border-bottom: 2px solid transparent
+		background-color: transparent
+		color: $purple-color_4
+		padding-left: 52px
+		&:focus + .salary-form__hr
+			position: absolute
+			left: 50%
+			bottom: 0px
+			height: 2px
+			background-color: $purple-color_4
+			animation-duration: 0.3s
+			animation-name: width-grow
+			animation-timing-function: $standard-animation
+		&:focus*::placeholder
+			opacity: 1
+		&_hour
+			padding-left: 50px
+		&_result
+			padding-left: 160px
+	&__prefix
+		position: absolute
+		bottom: 2px
+		text-align: right
+		opacity: 0
+		&_active
+			opacity: 1
+	&__salary-prefix
+		position: absolute
+		bottom: 2px
+		text-align: right
+		opacity: 1
+		font-family: "RobotoRegular", $helvetica
+		font-size: 16px
+		line-height: 27px
+		color: #000
+		user-select: none
+		cursor: default
+		display: inline-block
+	&__hr
+		width: 100%
+		transform: translateX(-50%) scaleX(1)
+	&__start-title
+		padding: 30px 50px 30px 50px
+		text-align: center
+		font-family: "RobotoRegular", $helvetica
+		font-size: 20px
+		color: rgba(0,0,0,0.7)
+		display: none
+		background-color: $white-color_1
+		//box-shadow: 0 4px 2px 0 rgba(0,0,0,0.14)
+		&_active
+			display: block
+
+
+
+
+.left-side, .right-side
+	display: inline-block
+	width: 50%
+	vertical-align: top
+	cursor: default
+.right-side
+	padding-top: 10px
+
+.disabled-text
+	color: rgba(0,0,0,0.42)
+	cursor: default
+
+.disabled-label
+	cursor: default
+.disabled-radio
+	color: rgba(0,0,0,0.42)
+	cursor: default
+	&_active
+		color: rgba($purple-color_4, 0.42) !important
+		cursor: default
+
+
+//Form Group
+.form-group
+	display: block
+	position: relative
+	margin-bottom: 16px
+	&_switch
+		margin-top: 8px
+		margin-bottom: 8px
+	&_input
+		margin-bottom: 8px
+	&_reset
+		float: left
+		margin: 0px
+		line-height: 36px
+	&:last-of-type
+		margin-bottom: 0px
+
+//Tooltip
+.tooltip
+	position: absolute
+	left: 0
+	top: 30px
+	background-color: rgba(97,97,97,1)
+	border-radius: 2px
+	padding: 8px 8px 2px 8px
+	width: 100px
+	text-align: center
+	z-index: 100
+	transform-origin: center top
+	transform: scale(0)
+	transition: all 0.01s $standard-animation
+	&__text
+		color: $white-color_1
+		font-family: "RobotoRegular", $helvetica
+		font-size: 10px
+		display: inline-block
+		line-height: 14px
+
+
+//Tooltip salary-form__text
+.salary-form__text
+	.tooltip
+		position: absolute
+		left: -115px
+		top: 0px
+		background-color: rgba(97,97,97,1)
+		border-radius: 2px
+		padding: 8px 8px 2px 8px
+		width: 100px
+		text-align: center
+		z-index: 100
+		transform-origin: center top
+		transform: scale(0)
+		transition: all 0.01s $standard-animation
+		&::before
+			content: ''
+			position: absolute
+			right: -4.5px
+			top: 8px
+			width: 10px
+			height: 10px
+			background-color: rgba(97,97,97,1)
+			transform: rotate(45deg)
+		&__text
+			color: $white-color_1
+			font-family: "RobotoRegular", $helvetica
+			font-size: 10px
+			display: inline-block
+			line-height: 14px
+
+.salary-form
+	&__switch-text
+		&_left
+			.tooltip
+				left: -125px !important
+				top: 5px
+				&::before
+					content: ''
+					position: absolute
+					right: -4.5px
+					top: 8px
+					width: 10px
+					height: 10px
+					background-color: rgba(97,97,97,1)
+					transform: rotate(45deg)
+		&_right
+			.tooltip
+				left: 115px !important
+				top: 5px
+				&::before
+					content: ''
+					position: absolute
+					left: -4.5px
+					top: 8px
+					width: 10px
+					height: 10px
+					background-color: rgba(97,97,97,1)
+					transform: rotate(45deg)
+
+.total-wrap
+	border-top: 8px solid rgba($purple-color_4, 0.6)
+	position: absolute
+	right: -210px
+	top: -8px
+	opacity: 0
+	background-color: $white-color_1
+	//transition: all 0.3s $standard-animation
+	//box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2)
+	&_active
+		opacity: 1
+		//transition: all 0.3s $standard-animation
+
+
+.total-box
+	background-color: $white-color_1
+	width: 200px
+	height: 152px
+	padding: 20px
+	transition: all 0.5s $standard-animation
+	border-top: 32px solid rgba($purple-color_1, 0.6)
+	&__value-box
+		display: inline-block
+		background-color: transparent
+		width: 100%
+		height: 34px
+		line-height: 32px
+		border: 1px solid rgba(0,0,0,0.5)
+		text-align: center
+		border-radius: 2px
+		font-family: "RobotoRegular", $helvetica
+		font-size: 16px
+		color: $purple-color_4
+		vertical-align: middle
+	&__btn
+		text-align: center
+		display: inline-block
+		width: 100%
+		background-color: $purple-color_1
+		line-height: 20px
+		padding: 8px
+		font-family: "RobotoRegular", $helvetica
+		font-size: 16px
+		color: $white-color_1
+		border-radius: 2px
+		cursor: pointer
+		margin-bottom: 10px
+		transition: all 0.3s $standard-animation
+		float: left
+		text-transform: uppercase
+		letter-spacing: 1.5px
+		user-select: none
+		&:hover
+			background-color: $purple-color_2
+			transition: all 0.3s $standard-animation
+	&__icon
+		position: absolute
+		top: 4px
+		right: 5px
+		cursor: pointer
+		user-select: none
+		color: rgba(0,0,0,0.42)
+		&:hover
+			color: rgba(255,255,255, 1)
+			transition: all 0.2s $standard-animation
+
+
+.back-to
+	display: inline-block
+	line-height: 11px
+	border-radius: 50%
+	padding: 10px
+	background-color: $purple-color_1
+	box-shadow: 0px 6px 12px rgba(0,0,0,0.25)
+	transition: all 0.3s $standard-animation
+	position: fixed
+	left: 30px
+	top: 50%
+	transform: translateY(-50%)
+	&__icon
+		color: $white-color_1
+		font-size: 40px !important
+		transition: all 0.3s $standard-animation
+		user-select: none
+	&:hover
+		box-shadow:  0px 10px 24px rgba(0,0,0,0.25)
+		transition: all 0.3s $standard-animation
+
+
+
+@keyframes width-grow
+	0%
+		transform: translateX(-50%) scaleX(0)
+		transform-origin: center center
+	100%
+		transform: translateX(-50%) scaleX(1)
+		transform-origin: center center
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul
+	list-style-type: none
+	margin: 0
+	padding: 0
+	margin-bottom: 10px
+	display: block
+li
+	margin: 5px
+	padding: 5px
+	width: 150px
+	display: block !important
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import "media"
